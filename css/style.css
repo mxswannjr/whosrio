@@ -1,5 +1,42 @@
 /* Mario Digital Signature - Matrix/Tron Aesthetic */
 
+/* Custom Font Loading - JetBrains Mono */
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('fonts/JetBrainsMono-Regular.woff2') format('woff2'),
+         url('fonts/JetBrainsMono-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('fonts/JetBrainsMono-Bold.woff2') format('woff2'),
+         url('fonts/JetBrainsMono-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('fonts/JetBrainsMono-Italic.woff2') format('woff2'),
+         url('fonts/JetBrainsMono-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('fonts/JetBrainsMono-BoldItalic.woff2') format('woff2'),
+         url('fonts/JetBrainsMono-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
 /* System Terminal Fonts - No external dependencies */
 
 /* CSS Variables with fallbacks for older browsers */
@@ -19,7 +56,7 @@
 }
 
 body {
-    font-family: 'SF Mono', 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Menlo', 'Consolas', monospace;
     background-color: #0a0a0a; /* Fallback for older browsers */
     background-color: var(--bg-color);
     color: #a855f7; /* Fallback for older browsers */
