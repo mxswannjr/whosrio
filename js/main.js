@@ -6,9 +6,9 @@
     
     // Configuration constants
     const CONFIG = {
-        INITIAL_COLUMNS: 15,
-        COLUMN_CREATION_INTERVAL: 800,
-        MAX_COLUMNS: 50,
+        INITIAL_COLUMNS: 40,
+        COLUMN_CREATION_INTERVAL: 300,
+        MAX_COLUMNS: 80,
         MIN_COLUMN_LENGTH: 10,
         MAX_COLUMN_LENGTH: 30,
         MIN_ANIMATION_DURATION: 15,
@@ -53,28 +53,30 @@
 
 
     // Create a single rain column safely
-    function createRainColumn() {
+    function createRainColumn(immediate = false) {
         try {
-            // Rate limiting to prevent performance issues
-            const now = Date.now();
-            if (now - lastColumnTime < CONFIG.MIN_COLUMN_INTERVAL) {
-                return;
+            // Rate limiting to prevent performance issues (skip for immediate rain)
+            if (!immediate) {
+                const now = Date.now();
+                if (now - lastColumnTime < CONFIG.MIN_COLUMN_INTERVAL) {
+                    return;
+                }
+                lastColumnTime = now;
             }
-            lastColumnTime = now;
-            
+
             // Check maximum column limit
             const currentColumns = matrixRain.querySelectorAll('.rain-column');
             if (currentColumns.length >= CONFIG.MAX_COLUMNS) {
                 return;
             }
-            
+
             const column = document.createElement('div');
             column.className = 'rain-column';
-            
+
             // Random position
             const x = Math.random() * 100;
             column.style.left = x + '%';
-            
+
             // Random content - safe DOM manipulation
             const length = Math.floor(Math.random() * (CONFIG.MAX_COLUMN_LENGTH - CONFIG.MIN_COLUMN_LENGTH)) + CONFIG.MIN_COLUMN_LENGTH;
             for (let i = 0; i < length; i++) {
@@ -82,22 +84,22 @@
                 column.appendChild(document.createTextNode(char));
                 column.appendChild(document.createElement('br'));
             }
-            
+
             // Random animation duration
             const duration = Math.random() * (CONFIG.MAX_ANIMATION_DURATION - CONFIG.MIN_ANIMATION_DURATION) + CONFIG.MIN_ANIMATION_DURATION;
             column.style.animationDuration = duration + 's';
-            
-            // Random delay
-            const delay = Math.random() * 10;
+
+            // No delay for immediate rain, random delay for continuous rain
+            const delay = immediate ? 0 : Math.random() * 2; // Reduced delay for smoother effect
             column.style.animationDelay = delay + 's';
-            
+
             matrixRain.appendChild(column);
-            
+
             // Schedule removal after animation
             setTimeout(() => {
                 removeColumn(column);
             }, (duration + delay) * 1000);
-            
+
         } catch (error) {
             console.error('Failed to create rain column:', error);
         }
@@ -117,7 +119,7 @@
     // Create initial rain columns - start immediately
     function createInitialRain() {
         for (let i = 0; i < CONFIG.INITIAL_COLUMNS; i++) {
-            createRainColumn(); // No delay - start immediately
+            createRainColumn(true); // Immediate - no delay
         }
     }
     
