@@ -257,8 +257,8 @@ body {
     display: inline-block;
     margin: 0;
     padding: 0;
-    background: transparent;
-    border: none;
+    background: rgba(255, 0, 0, 0.1); /* TEMP: Debug background */
+    border: 2px solid red; /* TEMP: Debug border */
     outline: none;
     user-select: none;
     cursor: default;
@@ -268,6 +268,7 @@ body {
         breatheGlow 4s ease-in-out infinite,
         subtleScale 25s cubic-bezier(0.4, 0.0, 0.6, 1) infinite,
         logoPulse 8s ease-in-out infinite;
+    z-index: 10; /* Ensure it's visible */
 }
 
 /* SVG Logo Container */
