@@ -276,32 +276,6 @@ body {
     height: 100%;
 }
 
-/* Electron Particle Animation */
-.electron-particle {
-    animation: electronOrbit 6s linear infinite;
-}
-
-@keyframes electronOrbit {
-    0% {
-        transform: rotate(0deg) translateX(30px) rotate(0deg);
-        filter: url(#electronGlow) drop-shadow(0 0 8px #a855f7);
-    }
-    25% {
-        filter: url(#electronGlow) drop-shadow(0 0 12px #a855f7);
-    }
-    50% {
-        transform: rotate(180deg) translateX(30px) rotate(-180deg);
-        filter: url(#electronGlow) drop-shadow(0 0 6px #a855f7);
-    }
-    75% {
-        filter: url(#electronGlow) drop-shadow(0 0 10px #a855f7);
-    }
-    100% {
-        transform: rotate(360deg) translateX(30px) rotate(-360deg);
-        filter: url(#electronGlow) drop-shadow(0 0 8px #a855f7);
-    }
-}
-
 /* Clean M Logo Styles */
 
 /* Enhanced Breathing Glow for SVG */
