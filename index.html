@@ -34,51 +34,8 @@
         <header class="logo-container">
             <div class="logo" id="logo" aria-label="Mario Digital Signature" tabindex="0">
                 <svg viewBox="0 0 120 100" class="logo-svg" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Central M "Planet" -->
-                    <defs>
-                        <radialGradient id="planetGradient" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
-                            <stop offset="70%" style="stop-color:#7c3aed;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#4c1d95;stop-opacity:1" />
-                        </radialGradient>
-                        <filter id="planetGlow">
-                            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                            <feMerge>
-                                <feMergeNode in="coloredBlur"/>
-                                <feMergeNode in="SourceGraphic"/>
-                            </feMerge>
-                        </filter>
-                    </defs>
-
-                    <!-- Central glowing M -->
-                    <text x="60" y="65" text-anchor="middle" fill="url(#planetGradient)" font-size="60" font-weight="bold" font-family="Arial, sans-serif" filter="url(#planetGlow)">M</text>
-
-                    <!-- Orbital System -->
-                    <g class="orbital-system">
-                        <!-- Inner Orbit - Fast moving satellites -->
-                        <g class="orbit-inner">
-                            <circle cx="60" cy="50" r="20" fill="none" stroke="#7c3aed" stroke-width="1" opacity="0.3"/>
-                            <circle cx="60" cy="30" r="3" fill="#a855f7" class="satellite satellite-1"/>
-                            <circle cx="75" cy="50" r="2" fill="#c084fc" class="satellite satellite-2"/>
-                            <circle cx="60" cy="70" r="2.5" fill="#7c3aed" class="satellite satellite-3"/>
-                            <circle cx="45" cy="50" r="3" fill="#a855f7" class="satellite satellite-4"/>
-                        </g>
-
-                        <!-- Outer Orbit - Slower moving elements -->
-                        <g class="orbit-outer">
-                            <circle cx="60" cy="50" r="35" fill="none" stroke="#9333ea" stroke-width="1" opacity="0.2"/>
-                            <rect x="58" y="15" width="4" height="4" fill="#c084fc" class="orbital-element element-1"/>
-                            <rect x="91" y="48" width="3" height="3" fill="#7c3aed" class="orbital-element element-2"/>
-                            <rect x="58" y="83" width="4" height="4" fill="#a855f7" class="orbital-element element-3"/>
-                            <rect x="25" y="48" width="3" height="3" fill="#9333ea" class="orbital-element element-4"/>
-                        </g>
-
-                        <!-- Orbital Trails -->
-                        <g class="orbital-trails">
-                            <path d="M60,30 Q75,40 80,50 Q75,60 60,70 Q45,60 40,50 Q45,40 60,30" fill="none" stroke="#7c3aed" stroke-width="1" opacity="0.1"/>
-                            <path d="M60,15 Q85,30 95,50 Q85,70 60,85 Q35,70 25,50 Q35,30 60,15" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.05"/>
-                        </g>
-                    </g>
+                    <!-- Clean Black M -->
+                    <text x="60" y="65" text-anchor="middle" fill="#000000" font-size="60" font-weight="bold" font-family="Arial, sans-serif">M</text>
                 </svg>
             </div>
         </header>
