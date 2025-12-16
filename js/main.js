@@ -31,20 +31,30 @@
     // Initialize application
     function init() {
         try {
+            // Debug indicator
+            const debugEl = document.getElementById('debug-indicator');
+            if (debugEl) debugEl.textContent = 'JS Starting...';
+
             matrixRain = document.getElementById('matrix-rain');
             if (!matrixRain) {
                 console.error('Matrix rain container not found');
+                if (debugEl) debugEl.textContent = 'ERROR: No matrix-rain div';
                 return;
             }
-            
+
+            if (debugEl) debugEl.textContent = 'Creating Rain...';
+
             setupEventListeners();
             createInitialRain();
             startRainGeneration();
             startCleanup();
-            
+
             console.log('Mario Digital Signature initialized successfully');
+            if (debugEl) debugEl.textContent = 'Rain Active!';
         } catch (error) {
             console.error('Failed to initialize Mario Digital Signature:', error);
+            const debugEl = document.getElementById('debug-indicator');
+            if (debugEl) debugEl.textContent = 'ERROR: ' + error.message;
         }
     }
     
